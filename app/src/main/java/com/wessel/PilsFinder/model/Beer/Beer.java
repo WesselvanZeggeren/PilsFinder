@@ -8,8 +8,9 @@ public class Beer {
     private String description;
 
     private int id;
-    private int price;
-    private int percentage;
+
+    private double price;
+    private double percentage;
 
     // constructor
     public Beer(int id) {
@@ -38,12 +39,12 @@ public class Beer {
         return this.id;
     }
 
-    public int getPrice() {
+    public double getPrice() {
 
         return this.price;
     }
 
-    public int getPercentage() {
+    public double getPercentage() {
 
         return this.percentage;
     }
@@ -64,12 +65,12 @@ public class Beer {
         this.description = description;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
 
         this.price = price;
     }
 
-    public void setPercentage(int percentage) {
+    public void setPercentage(double percentage) {
 
         this.percentage = percentage;
     }

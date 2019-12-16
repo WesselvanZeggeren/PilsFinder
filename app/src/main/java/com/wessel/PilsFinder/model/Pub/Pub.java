@@ -8,7 +8,9 @@ import java.util.ArrayList;
 public class Pub {
 
     private String name;
+    private String open;
     private String address;
+    private String imagePath;
     private String description;
 
     private int id;
@@ -26,9 +28,19 @@ public class Pub {
         return this.name;
     }
 
+    public String getOpen() {
+
+        return this.open;
+    }
+
     public String getAddress() {
 
         return this.address;
+    }
+
+    public String getImagePath() {
+
+        return this.imagePath;
     }
 
     public String getDescription() {
@@ -57,9 +69,19 @@ public class Pub {
         this.name = name;
     }
 
+    public void setOpen(String open) {
+
+        this.open = open;
+    }
+
     public void setAddress(String address) {
 
         this.address = address;
+    }
+
+    public void setImagePath(String imagePath) {
+
+        this.imagePath = imagePath;
     }
 
     public void setDescription(String description) {
