@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wessel.PilsFinder.R;
+import com.wessel.PilsFinder.controller.BeerDetailedActivity;
 import com.wessel.PilsFinder.model.Beer.Beer;
+import com.wessel.PilsFinder.model.Beer.BeerDB;
 import com.wessel.PilsFinder.model.Pub.Pub;
 
 import java.util.ArrayList;
@@ -22,15 +24,18 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
     private boolean isCheckable;
     private boolean isClickable;
+    private boolean isDeleteable;
 
     private Pub pub;
 
-    public BeerAdapter(ArrayList<Beer> beers, boolean isCheckable, boolean isClickable)
+    public BeerAdapter(boolean isCheckable, boolean isClickable, boolean isDeleteable)
     {
 
-        this.beers = beers;
+        this.beers = BeerDB.getInstance().getBeers();
+
         this.isCheckable = isCheckable;
         this.isClickable = isClickable;
+        this.isDeleteable = isDeleteable;
     }
 
     public void setPub(Pub pub)
@@ -74,15 +79,17 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
                 itemView.setOnClickListener(this::onClick);
         }
 
-        private void onClick(View view) {
+        private void onClick(View view)
+        {
 
-            Intent intent = new Intent();
+            Intent intent = new Intent(view.getContext(), BeerDetailedActivity.class);
             intent.putExtra("beer", (Parcelable) this.getCurrentBeer());
 
-            itemView.
+            view.getContext().startActivity(intent);
         }
 
-        private Beer getCurrentBeer() {
+        private Beer getCurrentBeer()
+        {
 
             return beers.get(BeerViewHolder.super.getAdapterPosition());
         }

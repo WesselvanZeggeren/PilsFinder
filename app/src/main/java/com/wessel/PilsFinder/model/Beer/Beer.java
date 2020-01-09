@@ -9,7 +9,6 @@ public class Beer {
 
     private int id;
 
-    private double price;
     private double percentage;
 
     // constructor
@@ -39,11 +38,6 @@ public class Beer {
         return this.id;
     }
 
-    public double getPrice() {
-
-        return this.price;
-    }
-
     public double getPercentage() {
 
         return this.percentage;
@@ -63,11 +57,6 @@ public class Beer {
     public void setDescription(String description) {
 
         this.description = description;
-    }
-
-    public void setPrice(double price) {
-
-        this.price = price;
     }
 
     public void setPercentage(double percentage) {

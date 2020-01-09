@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.wessel.PilsFinder.model.Beer.Beer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Pub {
 
@@ -16,11 +17,13 @@ public class Pub {
     private int id;
     private LatLng location;
     private ArrayList<Beer> beers;
+    private HashMap<Integer, Double> prices;
 
     public Pub (int id) {
 
         this.id = id;
         this.beers = new ArrayList<>();
+        this.prices = new HashMap<>();
     }
 
     public String getName() {
@@ -63,6 +66,14 @@ public class Pub {
         return this.beers;
     }
 
+    public double getPrice(int id) {
+
+        if (this.prices.containsKey(id))
+            return this.prices.get(id);
+        
+        return -1;
+    }
+
     // setters
     public void setName(String name) {
 
@@ -97,5 +108,10 @@ public class Pub {
     public void setBeers(ArrayList<Beer> beers) {
 
         this.beers = beers;
+    }
+
+    public void setPrices(HashMap<Integer, Double> prices) {
+
+        this.prices = prices;
     }
 }
