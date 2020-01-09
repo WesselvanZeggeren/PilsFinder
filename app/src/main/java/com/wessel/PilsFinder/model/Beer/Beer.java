@@ -12,9 +12,13 @@ public class Beer {
     private double percentage;
 
     // constructor
-    public Beer(int id) {
+    public Beer(int id, String name, double percentage, String description, String imagePath) {
 
         this.id = id;
+        this.name = name;
+        this.percentage = percentage;
+        this.description = description;
+        this.imagePath = imagePath;
     }
 
     // getters
