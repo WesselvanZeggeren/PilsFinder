@@ -9,13 +9,16 @@ public class Beer {
 
     private int id;
 
-    private double price;
     private double percentage;
 
     // constructor
-    public Beer(int id) {
+    public Beer(int id, String name, double percentage, String description, String imagePath) {
 
         this.id = id;
+        this.name = name;
+        this.percentage = percentage;
+        this.description = description;
+        this.imagePath = imagePath;
     }
 
     // getters
@@ -39,11 +42,6 @@ public class Beer {
         return this.id;
     }
 
-    public double getPrice() {
-
-        return this.price;
-    }
-
     public double getPercentage() {
 
         return this.percentage;
@@ -63,11 +61,6 @@ public class Beer {
     public void setDescription(String description) {
 
         this.description = description;
-    }
-
-    public void setPrice(double price) {
-
-        this.price = price;
     }
 
     public void setPercentage(double percentage) {
