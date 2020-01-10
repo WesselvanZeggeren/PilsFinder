@@ -10,13 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wessel.PilsFinder.R;
-import com.wessel.PilsFinder.controller.BeerDetailedActivity;
+import com.wessel.PilsFinder.controller.activity.BeerDetailedActivity;
 import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.Beer.BeerDB;
 import com.wessel.PilsFinder.model.Pub.Pub;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder> {
 

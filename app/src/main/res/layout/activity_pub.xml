@@ -5,21 +5,21 @@
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MapActivity">
+    tools:context=".controller.activity.MapActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/pub_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/pub_guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pub_recycler_view"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pub_guideline1" />
+        app:layout_constraintTop_toTopOf="@+id/pub_guideline2" />
 
     <EditText
         android:id="@+id/pub_name"
@@ -38,10 +38,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pub_open_start"
-        app:layout_constraintEnd_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/pub_guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,7 +56,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pub_longitude"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/pub_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/pub_address" />
 
     <EditText
@@ -71,7 +71,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pub_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/pub_guideline1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -81,7 +81,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="10:30"
+        android:hint="from 10:30"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pub_latitude"
         app:layout_constraintEnd_toStartOf="@+id/pub_open_end"
@@ -94,10 +94,10 @@
         android:layout_height="0dp"
         android:layout_marginEnd="7dp"
         android:ems="10"
-        android:hint="23:00"
+        android:hint="to 23:00"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pub_latitude"
-        app:layout_constraintEnd_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/pub_guideline1"
         app:layout_constraintStart_toEndOf="@+id/pub_open_start"
         app:layout_constraintTop_toBottomOf="@+id/pub_name" />
 
@@ -108,10 +108,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="4.9762134"
-        android:inputType="textPersonName"
+        android:hint="lat 4.97621"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/pub_button"
-        app:layout_constraintEnd_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/pub_guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pub_open_start" />
 
@@ -123,11 +123,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="50.9623789648"
-        android:inputType="textPersonName"
+        android:hint="long 50.96237"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/pub_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pub_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/pub_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/pub_image" />
 
     <Button

@@ -1,4 +1,4 @@
-package com.wessel.PilsFinder.controller;
+package com.wessel.PilsFinder.controller.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

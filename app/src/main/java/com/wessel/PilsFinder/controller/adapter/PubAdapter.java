@@ -13,12 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.wessel.PilsFinder.R;
-import com.wessel.PilsFinder.controller.PubDetailedActivity;
+import com.wessel.PilsFinder.controller.activity.PubDetailedActivity;
 import com.wessel.PilsFinder.model.Pub.Pub;
 import com.wessel.PilsFinder.model.Pub.PubDB;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
 {
