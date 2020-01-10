@@ -68,7 +68,7 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
         TextView beer;
         ImageView image;
 
-        public PubViewHolder(@NonNull View itemView)
+        PubViewHolder(@NonNull View itemView)
         {
 
             super(itemView);
