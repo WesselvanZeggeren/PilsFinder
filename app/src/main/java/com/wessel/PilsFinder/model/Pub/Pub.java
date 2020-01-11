@@ -32,6 +32,7 @@ public class Pub {
         this.imagePath = imagePath;
     }
 
+    // getters
     public String getName() {
 
         return this.name;
@@ -70,6 +71,11 @@ public class Pub {
     public ArrayList<Beer> getBeers() {
 
         return this.beers;
+    }
+
+    public HashMap<Integer, Double> getPrices() {
+
+        return this.prices;
     }
 
     public double getPrice(int id) {

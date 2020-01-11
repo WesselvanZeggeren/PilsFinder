@@ -13,22 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.wessel.PilsFinder.R;
-import com.wessel.PilsFinder.controller.PubDetailedActivity;
+import com.wessel.PilsFinder.controller.activity.PubDetailedActivity;
 import com.wessel.PilsFinder.model.Pub.Pub;
 import com.wessel.PilsFinder.model.Pub.PubDB;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
 {
 
     private ArrayList<Pub> pubs;
+    private boolean isClickable;
 
-    public PubAdapter(PubDB pubDB)
+    public PubAdapter(boolean isClickable)
     {
 
-        this.pubs = pubDB.getPubs();
+        this.pubs = PubDB.getInstance().getPubs();
+        this.isClickable = isClickable;
     }
 
     @NonNull
@@ -69,7 +70,7 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
         TextView beer;
         ImageView image;
 
-        public PubViewHolder(@NonNull View itemView)
+        PubViewHolder(@NonNull View itemView)
         {
 
             super(itemView);
@@ -79,7 +80,8 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
             this.beer = itemView.findViewById(R.id.pub_item_beer);
             this.image = itemView.findViewById(R.id.pub_item_image);
 
-            itemView.setOnClickListener(this::onClick);
+            if (isClickable)
+                itemView.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view)
