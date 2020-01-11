@@ -23,16 +23,16 @@ public class PubDetailedActivity extends AppCompatActivity {
 
     private Pub pub;
 
-    EditText name;
-    EditText address;
-    EditText open_start;
-    EditText open_end;
-    EditText latitude;
-    EditText longitude;
-    EditText image_path;
-    EditText description;
+    private EditText name;
+    private EditText address;
+    private EditText open_start;
+    private EditText open_end;
+    private EditText latitude;
+    private EditText longitude;
+    private EditText image_path;
+    private EditText description;
 
-    ImageView image;
+    private ImageView image;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

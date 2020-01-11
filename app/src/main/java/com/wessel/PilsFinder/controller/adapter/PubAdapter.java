@@ -23,11 +23,13 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
 {
 
     private ArrayList<Pub> pubs;
+    private boolean isClickable;
 
-    public PubAdapter(PubDB pubDB)
+    public PubAdapter(boolean isClickable)
     {
 
-        this.pubs = pubDB.getPubs();
+        this.pubs = PubDB.getInstance().getPubs();
+        this.isClickable = isClickable;
     }
 
     @NonNull
@@ -78,7 +80,8 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
             this.beer = itemView.findViewById(R.id.pub_item_beer);
             this.image = itemView.findViewById(R.id.pub_item_image);
 
-            itemView.setOnClickListener(this::onClick);
+            if (isClickable)
+                itemView.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view)

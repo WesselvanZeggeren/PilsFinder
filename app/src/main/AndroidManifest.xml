@@ -18,5 +18,8 @@
         </activity>
         <activity android:name=".controller.activity.PubActivity"></activity>
         <activity android:name=".controller.activity.PubDetailedActivity"></activity>
+        <activity android:name=".controller.activity.BeerActivity"></activity>
+        <activity android:name=".controller.activity.BeerDetailedActivity"></activity>
+        <activity android:name=".controller.activity.WayPointActivity"></activity>
     </application>
 </manifest>

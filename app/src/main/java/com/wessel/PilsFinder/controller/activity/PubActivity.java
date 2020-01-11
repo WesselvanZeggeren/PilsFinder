@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class PubActivity extends AppCompatActivity {
 
-    private PubDB pubDB;
     private PubAdapter pubAdapter;
 
     @Override
@@ -26,11 +25,8 @@ public class PubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub);
 
-        this.pubDB = PubDB.getInstance();
-        this.pubAdapter = new PubAdapter(this.pubDB);
-
         RecyclerView recyclerView = findViewById(R.id.pub_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(this.pubAdapter);
+        recyclerView.setAdapter(new PubAdapter(false));
     }
 }
