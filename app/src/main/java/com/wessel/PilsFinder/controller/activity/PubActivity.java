@@ -40,7 +40,7 @@ public class PubActivity extends AppCompatActivity {
         this.openEnd = findViewById(R.id.pub_open_end);
         this.latitude = findViewById(R.id.pub_latitude);
         this.longitude = findViewById(R.id.pub_longitude);
-        this.imagePath = findViewById(R.id.pub_image);
+        this.imagePath = findViewById(R.id.pub_image_path);
 
         Button button = findViewById(R.id.pub_create);
         button.setOnClickListener(this::onCreateClick);

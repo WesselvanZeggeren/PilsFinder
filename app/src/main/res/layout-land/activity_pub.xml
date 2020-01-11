@@ -14,15 +14,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.4" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pub_recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pub_guideline1"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/pub_name"
         android:layout_width="0dp"
@@ -94,7 +85,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="lat 4.97621"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/pub_longitude"
         app:layout_constraintEnd_toStartOf="@+id/pub_guideline1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,14 +100,14 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="long 50.96237"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/pub_image"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/pub_image_path"
         app:layout_constraintEnd_toStartOf="@+id/pub_recycler_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pub_latitude" />
 
     <EditText
-        android:id="@+id/pub_image"
+        android:id="@+id/pub_image_path"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -142,5 +133,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pub_guideline1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pub_image" />
+        app:layout_constraintTop_toBottomOf="@+id/pub_image_path" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pub_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pub_guideline1"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
