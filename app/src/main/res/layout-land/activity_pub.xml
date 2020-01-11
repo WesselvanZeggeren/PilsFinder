@@ -126,13 +126,13 @@
         android:ems="10"
         android:hint="https://im.ag.es/1"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/pub_button3"
+        app:layout_constraintBottom_toTopOf="@+id/pub_create"
         app:layout_constraintEnd_toStartOf="@+id/pub_recycler_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pub_longitude" />
 
     <Button
-        android:id="@+id/pub_button3"
+        android:id="@+id/pub_create"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
