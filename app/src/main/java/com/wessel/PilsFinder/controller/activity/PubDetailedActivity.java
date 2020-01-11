@@ -15,5 +15,6 @@ public class PubDetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub_item);
 
+
     }
 }

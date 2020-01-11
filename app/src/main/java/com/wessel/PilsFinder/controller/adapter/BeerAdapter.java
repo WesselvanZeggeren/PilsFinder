@@ -22,7 +22,6 @@ import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.Beer.BeerDB;
 import com.wessel.PilsFinder.model.Pub.Pub;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
