@@ -19,13 +19,20 @@ public class Pub {
     private ArrayList<Beer> beers;
     private HashMap<Integer, Double> prices;
 
-    public Pub (int id) {
+    public Pub (int id, String name, String open, String address, double latitude, double longitude, String description, String imagePath) {
 
         this.id = id;
+        this.name = name;
+        this.open = open;
         this.beers = new ArrayList<>();
         this.prices = new HashMap<>();
+        this.address = address;
+        this.location = new LatLng(latitude, longitude);
+        this.description = description;
+        this.imagePath = imagePath;
     }
 
+    // getters
     public String getName() {
 
         return this.name;
@@ -64,6 +71,11 @@ public class Pub {
     public ArrayList<Beer> getBeers() {
 
         return this.beers;
+    }
+
+    public HashMap<Integer, Double> getPrices() {
+
+        return this.prices;
     }
 
     public double getPrice(int id) {
@@ -113,5 +125,24 @@ public class Pub {
     public void setPrices(HashMap<Integer, Double> prices) {
 
         this.prices = prices;
+    }
+
+    // parse
+    public String getParcedBeers() {
+
+        return "";
+    }
+
+    public String getParsedPrices() {
+
+        return "";
+    }
+
+    public void parseBeers(String beers) {
+
+    }
+
+    public void parsePrices(String prices) {
+
     }
 }

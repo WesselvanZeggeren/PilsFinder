@@ -9,14 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.MapActivity">
+        <activity android:name=".controller.activity.MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.PubActivity"></activity>
-        <activity android:name=".controller.PubDetailedActivity"></activity>
+        <activity android:name=".controller.activity.PubActivity"></activity>
+        <activity android:name=".controller.activity.PubDetailedActivity"></activity>
+        <activity android:name=".controller.activity.BeerActivity"></activity>
+        <activity android:name=".controller.activity.BeerDetailedActivity"></activity>
+        <activity android:name=".controller.activity.WayPointActivity"></activity>
     </application>
 </manifest>

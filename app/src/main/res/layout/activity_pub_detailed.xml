@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.activity.MapActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/pub_detailed_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/pub_detailed_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <EditText
+        android:id="@+id/pub_detailed_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pub_detailed_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="address"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_open_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_name" />
+
+    <EditText
+        android:id="@+id/pub_detailed_open_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="from 10:30"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_latitude"
+        app:layout_constraintEnd_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_address" />
+
+    <EditText
+        android:id="@+id/pub_detailed_open_end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="to 23:00"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_longitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_address" />
+
+    <EditText
+        android:id="@+id/pub_detailed_latitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="lat 4.97621"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_image_path"
+        app:layout_constraintEnd_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_open_start" />
+
+    <EditText
+        android:id="@+id/pub_detailed_longitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="long 50.96237"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_image_path"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_open_end" />
+
+    <EditText
+        android:id="@+id/pub_detailed_image_path"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="https://im.ag.es/1"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_latitude" />
+
+    <EditText
+        android:id="@+id/pub_detailed_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="description: quite tasty"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_image_path" />
+
+    <Button
+        android:id="@+id/pub_detailed_delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Remove pub from list"
+        app:layout_constraintBottom_toTopOf="@+id/pub_detailed_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pub_detailed_description" />
+
+    <ImageView
+        android:id="@+id/pub_detailed_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pub_detailed_guideline2"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pub_detailed_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pub_detailed_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/pub_detailed_guideline2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
