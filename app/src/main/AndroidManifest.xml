@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.activity.MapActivity">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="dc195ddd-af25-4ca6-a090-7d310d20c502" />
+
+        <activity
+            android:name=".controller.activity.MapActivity"
+            android:label="Map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

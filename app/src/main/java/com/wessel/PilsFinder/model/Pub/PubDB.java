@@ -142,6 +142,15 @@ public class PubDB extends SQLiteOpenHelper {
         return this.pubs;
     }
 
+    public Pub getPubById(int id) {
+
+        for (Pub pub : this.pubs)
+            if (pub.getId() == id)
+                return pub;
+
+        return null;
+    }
+
     private ContentValues createContentValues(Pub pub)
     {
 
