@@ -21,6 +21,7 @@ import com.wessel.PilsFinder.controller.activity.BeerDetailedActivity;
 import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.Beer.BeerDB;
 import com.wessel.PilsFinder.model.Pub.Pub;
+import com.wessel.PilsFinder.model.Pub.PubDB;
 
 
 import java.util.ArrayList;
@@ -154,7 +155,7 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
             if (!b && pub.getBeers().contains(this.getCurrentBeer())) {
 
-                pub.getPrices().put(this.getCurrentBeer().getId(), Double.valueOf(this.input.getText().toString()));
+                pub.setPrice(this.getCurrentBeer().getId(), Double.valueOf(this.input.getText().toString()));
             }
         }
 
@@ -162,7 +163,7 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
         {
 
             Intent intent = new Intent(view.getContext(), BeerDetailedActivity.class);
-            intent.putExtra("beer", (Parcelable) this.getCurrentBeer());
+            intent.putExtra("id", this.getCurrentBeer().getId());
 
             view.getContext().startActivity(intent);
         }

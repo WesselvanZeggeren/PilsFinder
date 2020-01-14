@@ -56,5 +56,9 @@ public class BeerActivity extends AppCompatActivity {
 
             this.beerAdapter.notifyDataSetChanged();
         }
+
+        this.name.setText("");
+        this.imagePath.setText("");
+        this.percentage.setText("");
     }
 }

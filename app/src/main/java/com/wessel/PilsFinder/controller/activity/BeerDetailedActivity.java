@@ -30,12 +30,17 @@ public class BeerDetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_beer_detailed);
 
-        this.beer = (Beer) savedInstanceState.get("beer");
+        this.beer = BeerDB.getInstance().getBeerById(getIntent().getIntExtra("id", -1));
 
         this.name = findViewById(R.id.beer_detailed_name);
         this.percentage = findViewById(R.id.beer_detailed_percentage);
         this.imagePath = findViewById(R.id.beer_detailed_image_path);
         this.description = findViewById(R.id.beer_detailed_description);
+
+        this.name.setText(this.beer.getName());
+        this.percentage.setText(String.valueOf(this.beer.getPercentage()));
+        this.imagePath.setText(this.beer.getImagePath());
+        this.description.setText(this.beer.getDescription());
 
         this.name.setOnFocusChangeListener(this::onNameFocusChanged);
         this.percentage.setOnFocusChangeListener(this::onPercentageFocusChanged);

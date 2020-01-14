@@ -21,7 +21,7 @@ public class PubDB extends SQLiteOpenHelper {
     private PubDB (Context context)
     {
 
-        super(context, DBConstants.DATABASE_NAME, null, 2);
+        super(context, DBConstants.DATABASE_NAME, null, 3);
 
         this.pubs = new ArrayList<>();
 
@@ -142,6 +142,15 @@ public class PubDB extends SQLiteOpenHelper {
         return this.pubs;
     }
 
+    public Pub getPubById(int id) {
+
+        for (Pub pub : this.pubs)
+            if (pub.getId() == id)
+                return pub;
+
+        return null;
+    }
+
     private ContentValues createContentValues(Pub pub)
     {
 
@@ -149,7 +158,7 @@ public class PubDB extends SQLiteOpenHelper {
         values.put(DBConstants.PUB_ID, pub.getId());
         values.put(DBConstants.PUB_NAME, pub.getName());
         values.put(DBConstants.PUB_OPEN, pub.getOpen());
-        values.put(DBConstants.PUB_BEERS, pub.getParcedBeers());
+        values.put(DBConstants.PUB_BEERS, pub.getParsedBeers());
         values.put(DBConstants.PUB_PRICES, pub.getParsedPrices());
         values.put(DBConstants.PUB_ADDRESS, pub.getAddress());
         values.put(DBConstants.PUB_LATITUDE, pub.getLocation().latitude);

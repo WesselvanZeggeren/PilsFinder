@@ -68,5 +68,13 @@ public class PubActivity extends AppCompatActivity {
 
             this.pubAdapter.notifyDataSetChanged();
         }
+
+        this.name.setText("");
+        this.address.setText("");
+        this.openEnd.setText("");
+        this.openStart.setText("");
+        this.latitude.setText("");
+        this.longitude.setText("");
+        this.imagePath.setText("");
     }
 }

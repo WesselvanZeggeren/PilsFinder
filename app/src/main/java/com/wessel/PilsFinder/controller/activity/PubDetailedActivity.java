@@ -40,6 +40,8 @@ public class PubDetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub_detailed);
 
+        this.pub = PubDB.getInstance().getPubById(getIntent().getIntExtra("id", -1));
+
         this.name = findViewById(R.id.pub_detailed_name);
         this.address = findViewById(R.id.pub_detailed_address);
         this.open_start = findViewById(R.id.pub_detailed_open_start);
@@ -47,8 +49,15 @@ public class PubDetailedActivity extends AppCompatActivity {
         this.latitude = findViewById(R.id.pub_detailed_latitude);
         this.longitude = findViewById(R.id.pub_detailed_longitude);
         this.description = findViewById(R.id.pub_detailed_description);
-
         this.image = findViewById(R.id.pub_detailed_image);
+
+        this.name.setText(this.pub.getName());
+        this.address.setText(this.pub.getAddress());
+        this.open_start.setText(this.pub.getOpen().split(" t/m ")[0]);
+        this.open_end.setText(this.pub.getOpen().split(" t/m ")[1]);
+        this.latitude.setText(String.valueOf(this.pub.getLocation().latitude));
+        this.longitude.setText(String.valueOf(this.pub.getLocation().longitude));
+        this.description.setText(this.pub.getDescription());
 
         this.name.setOnFocusChangeListener(this::onNameFocusChange);
         this.address.setOnFocusChangeListener(this::onAddressFocusChange);
@@ -63,8 +72,6 @@ public class PubDetailedActivity extends AppCompatActivity {
 
         Button delete = findViewById(R.id.pub_detailed_delete);
         delete.setOnClickListener(this::onDeleteClick);
-
-        this.pub = (Pub) savedInstanceState.get("pub");
 
         BeerAdapter beerAdapter = new BeerAdapter("pub", false);
         beerAdapter.setPub(this.pub);

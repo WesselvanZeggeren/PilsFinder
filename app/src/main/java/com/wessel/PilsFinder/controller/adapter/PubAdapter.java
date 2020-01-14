@@ -49,7 +49,7 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
         holder.name.setText(pub.getName());
         holder.address.setText(pub.getAddress());
         holder.open.setText(pub.getOpen());
-        holder.beer.setText(pub.getBeers().size());
+        holder.beer.setText(String.valueOf(pub.getBeers().size()));
 
         Picasso.get().load(pub.getImagePath()).into(holder.image);
     }
@@ -88,7 +88,7 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
         {
 
             Intent intent = new Intent(view.getContext(), PubDetailedActivity.class);
-            intent.putExtra("pub", (Parcelable) this.getCurrentPub());
+            intent.putExtra("id", this.getCurrentPub().getId());
 
             view.getContext().startActivity(intent);
         }

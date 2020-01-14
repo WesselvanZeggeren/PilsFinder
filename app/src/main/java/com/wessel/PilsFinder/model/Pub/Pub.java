@@ -1,10 +1,16 @@
 package com.wessel.PilsFinder.model.Pub;
 
+import android.util.SparseArray;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.wessel.PilsFinder.model.Beer.Beer;
+import com.wessel.PilsFinder.model.Beer.BeerDB;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Pub {
 
@@ -73,11 +79,6 @@ public class Pub {
         return this.beers;
     }
 
-    public HashMap<Integer, Double> getPrices() {
-
-        return this.prices;
-    }
-
     public double getPrice(int id) {
 
         if (this.prices.containsKey(id))
@@ -117,32 +118,48 @@ public class Pub {
         this.location = location;
     }
 
-    public void setBeers(ArrayList<Beer> beers) {
+    public void setPrice(int id, double price){
 
-        this.beers = beers;
-    }
-
-    public void setPrices(HashMap<Integer, Double> prices) {
-
-        this.prices = prices;
+        this.prices.put(id, price);
     }
 
     // parse
-    public String getParcedBeers() {
+    public String getParsedBeers() {
 
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Beer beer : this.beers)
+            stringBuilder.append(beer.getId()).append(":");
+
+        return stringBuilder.toString();
     }
 
     public String getParsedPrices() {
 
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Map.Entry<Integer, Double> price : this.prices.entrySet())
+            stringBuilder.append(price.getKey()).append("-").append(price.getValue()).append(":");
+
+        return stringBuilder.toString();
     }
 
     public void parseBeers(String beers) {
 
+        this.beers = new ArrayList<>();
+
+        for (String id : beers.split(":"))
+            if (id.length() > 0)
+                this.beers.add(BeerDB.getInstance().getBeerById(Integer.valueOf(id)));
     }
 
     public void parsePrices(String prices) {
 
+        this.prices = new HashMap<>();
+
+        String[] params;
+        for (String price : prices.split(":"))
+            if ((params = price.split("-")).length == 2)
+                this.prices.put(Integer.valueOf(params[0]), Double.valueOf(params[1]));
     }
 }
