@@ -38,10 +38,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.activity.PubActivity"></activity>
-        <activity android:name=".controller.activity.PubDetailedActivity"></activity>
-        <activity android:name=".controller.activity.BeerActivity"></activity>
-        <activity android:name=".controller.activity.BeerDetailedActivity"></activity>
+        <activity
+            android:name=".controller.activity.PubActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".controller.activity.PubDetailedActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".controller.activity.BeerActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".controller.activity.BeerDetailedActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".controller.activity.WayPointActivity"></activity>
     </application>
 

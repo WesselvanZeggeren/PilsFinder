@@ -1,6 +1,5 @@
 package com.wessel.PilsFinder.model.Beer;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -22,7 +21,7 @@ public class BeerDB extends SQLiteOpenHelper {
     private BeerDB(Context context)
     {
 
-        super(context, DBConstants.DATABASE_NAME, null, 2);
+        super(context, DBConstants.DATABASE_NAME, null, 3);
 
         this.beers = new ArrayList<>();
 
@@ -100,7 +99,8 @@ public class BeerDB extends SQLiteOpenHelper {
         while (cursor.moveToNext());
     }
 
-    public void updateBeer(Beer beer) {
+    public void updateBeer(Beer beer)
+    {
 
         this.getWritableDatabase().update(
             DBConstants.BEER_TABLE_NAME,
@@ -128,6 +128,17 @@ public class BeerDB extends SQLiteOpenHelper {
 
         return this.beers;
     }
+
+    public Beer getBeerById(int id)
+    {
+
+        for (Beer beer : this.beers)
+            if (beer.getId() == id)
+                return beer;
+
+        return null;
+    }
+
 
     private ContentValues createContentValues(Beer beer)
     {

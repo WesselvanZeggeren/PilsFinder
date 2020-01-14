@@ -1,5 +1,7 @@
 package com.wessel.PilsFinder.model.Beer;
 
+import java.io.Serializable;
+
 public class Beer {
 
     // attributes

@@ -2,7 +2,7 @@ package com.wessel.PilsFinder.model;
 
 public class DBConstants {
 
-    public static String DATABASE_NAME = "pilsFinder";
+    public static String DATABASE_NAME = "PilsFinder";
 
     public static String BEER_TABLE_NAME = "beer";
     public static String PUB_TABLE_NAME = "pub";
@@ -28,7 +28,7 @@ public class DBConstants {
     {
 
         return
-            "CREATE TABLE IF EXISTS " + BEER_TABLE_NAME + " ( " +
+            "CREATE TABLE " + BEER_TABLE_NAME + " ( " +
                 BEER_ID + " INT(32) NOT NULL, " +
                 BEER_NAME + " VARCHAR(64) NOT NULL, " +
                 BEER_PERCENTAGE + " DOUBLE NOT NULL, " +
@@ -49,7 +49,7 @@ public class DBConstants {
     {
 
         return
-            "CREATE TABLE IF EXISTS " + PUB_TABLE_NAME + " ( " +
+            "CREATE TABLE " + PUB_TABLE_NAME + " ( " +
                 PUB_ID + " INT(32) NOT NULL, " +
                 PUB_NAME + " VARCHAR(64) NOT NULL, " +
                 PUB_OPEN + " VARCHAR(64) NOT NULL, " +
