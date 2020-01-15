@@ -22,11 +22,15 @@ import java.util.ArrayList;
 public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubViewHolder>
 {
 
+    public static PubAdapter adapter;
+
     private ArrayList<Pub> pubs;
     private boolean isClickable;
 
     public PubAdapter(boolean isClickable)
     {
+
+        adapter = this;
 
         this.pubs = PubDB.getInstance().getPubs();
         this.isClickable = isClickable;

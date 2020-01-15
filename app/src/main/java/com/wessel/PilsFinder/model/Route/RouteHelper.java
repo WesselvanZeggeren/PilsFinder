@@ -75,22 +75,29 @@ public class RouteHelper {
         return data;
     }
 
-    public static ArrayList<LatLng> parseJsonRoute(JSONObject jsonObject) {
+    public static List<List<LatLng>> parseJsonRoute(JSONObject jsonObject) {
 
-        ArrayList<LatLng> points = new ArrayList<>();
+        List<List<LatLng>> points = new ArrayList<>();
 
         try {
 
-            JSONObject route = jsonObject.getJSONArray("routes").getJSONObject(0).getJSONObject("legs");
-            JSONObject start = route.getJSONObject("start_location");
-            JSONArray steps = route.getJSONArray("steps");
+            JSONArray routes = jsonObject.getJSONArray("routes").getJSONObject(0).getJSONArray("legs");
 
-            points.add(new LatLng(start.getDouble("lat"), start.getDouble("ling")));
+            for (int a = 0; a < routes.length(); a++) {
 
-            for (int i = 0; i < steps.length(); i++) {
+                points.add(new ArrayList<>());
 
-                JSONObject end = steps.getJSONObject(i).getJSONObject("end_location");
-                points.add(new LatLng(end.getDouble("lat"), end.getDouble("ling")));
+                JSONObject route = routes.getJSONObject(a);
+                JSONObject start = route.getJSONObject("start_location");
+                JSONArray steps = route.getJSONArray("steps");
+
+                points.get(a).add(new LatLng(start.getDouble("lat"), start.getDouble("lng")));
+
+                for (int b = 0; b < steps.length(); b++) {
+
+                    JSONObject end = steps.getJSONObject(b).getJSONObject("end_location");
+                    points.get(a).add(new LatLng(end.getDouble("lat"), end.getDouble("lng")));
+                }
             }
 
             return points;

@@ -29,6 +29,8 @@ import java.util.ArrayList;
 
 public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder> {
 
+    public static BeerAdapter adapter;
+
     private ArrayList<Beer> beers;
 
     private String type;
@@ -38,6 +40,8 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
     public BeerAdapter(String type, boolean isClickable)
     {
+
+        adapter = this;
 
         this.type = type;
         this.beers = BeerDB.getInstance().getBeers();

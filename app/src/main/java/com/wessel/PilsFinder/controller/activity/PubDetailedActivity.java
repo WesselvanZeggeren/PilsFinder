@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import com.wessel.PilsFinder.R;
 import com.wessel.PilsFinder.controller.adapter.BeerAdapter;
+import com.wessel.PilsFinder.controller.adapter.PubAdapter;
 import com.wessel.PilsFinder.model.Pub.Pub;
 import com.wessel.PilsFinder.model.Pub.PubDB;
 
@@ -89,6 +90,10 @@ public class PubDetailedActivity extends AppCompatActivity {
     {
 
         PubDB.getInstance().updatePub(this.pub);
+
+        PubAdapter.adapter.notifyDataSetChanged();
+        
+        MapActivity.map.refresh();
     }
 
     private void setPicasso()
@@ -100,54 +105,66 @@ public class PubDetailedActivity extends AppCompatActivity {
     // events
     private void onImagePathFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.pub.getImagePath().equals(this.image_path.getText().toString())) {
+
             this.pub.setImagePath(this.image_path.getText().toString());
 
-        this.savePub();
-        this.setPicasso();
+            this.savePub();
+            this.setPicasso();
+        }
     }
 
     private void onNameFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.pub.getName().equals(this.name.getText().toString())) {
+
             this.pub.setName(this.name.getText().toString());
 
-        this.savePub();
+            this.savePub();
+        }
     }
 
     private void onAddressFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.pub.getAddress().equals(this.address.getText().toString())) {
+
             this.pub.setAddress(this.address.getText().toString());
 
-        this.savePub();
+            this.savePub();
+        }
     }
 
     private void onOpenFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b) {
+
             this.pub.setOpen(this.open_start.getText().toString() + " t/m " + this.open_end.getText().toString());
 
-        this.savePub();
+            this.savePub();
+        }
     }
 
     private void onLocationFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b) {
+
             this.pub.setLocation(new LatLng(
                 Double.valueOf(this.latitude.getText().toString()),
                 Double.valueOf(this.longitude.getText().toString())
             ));
 
-        this.savePub();
+            this.savePub();
+        }
     }
 
     private void onDescriptionFocusChange(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.pub.getDescription().equals(this.description.getText().toString())) {
+
             this.pub.setDescription(this.description.getText().toString());
 
-        this.savePub();
+            this.savePub();
+        }
     }
 
     private void onDeleteClick(View view) {

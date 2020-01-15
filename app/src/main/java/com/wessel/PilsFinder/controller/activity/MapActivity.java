@@ -139,12 +139,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         uiSettings.setTiltGesturesEnabled(true);
 
         this.googleMap.setMinZoomPreference(10);
-        this.googleMap.setMaxZoomPreference(22);
+        this.googleMap.setMaxZoomPreference(15);
 
         if (hasLocationAccess())
             this.googleMap.setMyLocationEnabled(true);
 
-        if (this.markers.size() > 0)
+        if (this.location != null)
+            this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(this.location.getLatitude(), this.location.getLongitude())));
+        else if (this.markers.size() > 0)
             this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(this.markers.get(0).getPosition()));
         else
             this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(51.5719, 4.7683)));
@@ -212,12 +214,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             @Override
             public void onLocationResult(LocationResult locationResult) {
 
-                if (locationResult == null)
-                    return;
+            if (locationResult == null)
+                return;
 
-                for (Location l : locationResult.getLocations())
-                    if (l != null)
-                        location = l;
+            for (Location l : locationResult.getLocations())
+                if (l != null)
+                    location = l;
             }
         };
 

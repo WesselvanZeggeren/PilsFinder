@@ -11,15 +11,14 @@ import com.wessel.PilsFinder.controller.activity.MapActivity;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class RouteParseTask extends AsyncTask<String, Integer, ArrayList<LatLng>> {
+public class RouteParseTask extends AsyncTask<String, Integer, List<List<LatLng>>> {
 
     @Override
-    protected ArrayList<LatLng> doInBackground(String... jsonData) {
+    protected List<List<LatLng>> doInBackground(String... jsonData) {
 
-        ArrayList<LatLng> routes = null;
+        List<List<LatLng>> routes = null;
 
         try {
 
@@ -34,14 +33,22 @@ public class RouteParseTask extends AsyncTask<String, Integer, ArrayList<LatLng>
     }
 
     @Override
-    protected void onPostExecute(ArrayList<LatLng> result) {
+    protected void onPostExecute(List<List<LatLng>> result) {
 
         PolylineOptions route = new PolylineOptions();
+        ArrayList points;
 
-        route.addAll(result);
-        route.width(12);
-        route.color(Color.RED);
-        route.geodesic(true);
+        for (List<LatLng> latLngs : result) {
+
+            route = new PolylineOptions();
+
+            points = new ArrayList(latLngs);
+
+            route.addAll(points);
+            route.width(8);
+            route.color(Color.BLUE);
+            route.geodesic(true);
+        }
 
         MapActivity.map.route = route;
         MapActivity.map.refresh();

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 import com.wessel.PilsFinder.R;
+import com.wessel.PilsFinder.controller.adapter.BeerAdapter;
 import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.Beer.BeerDB;
 
@@ -56,6 +57,10 @@ public class BeerDetailedActivity extends AppCompatActivity {
     private void saveBeer() {
 
         BeerDB.getInstance().updateBeer(this.beer);
+
+        BeerAdapter.adapter.notifyDataSetChanged();
+
+        MapActivity.map.refresh();
     }
 
     private void setPicasso() {
@@ -66,34 +71,42 @@ public class BeerDetailedActivity extends AppCompatActivity {
     // events
     private void onNameFocusChanged(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.beer.getName().equals(this.name.getText().toString())) {
+
             this.beer.setName(this.name.getText().toString());
 
-        this.saveBeer();
+            this.saveBeer();
+        }
     }
 
     private void onPercentageFocusChanged(View view, boolean b) {
 
-        if (!b)
+        if (!b && this.beer.getPercentage() != Double.valueOf(this.percentage.getText().toString())) {
+
             this.beer.setPercentage(Double.valueOf(this.percentage.getText().toString()));
 
-        this.saveBeer();
+            this.saveBeer();
+        }
     }
 
     private void onImagePathFocusChanged(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.beer.getImagePath().equals(this.imagePath.getText().toString())) {
+
             this.beer.setImagePath(this.imagePath.getText().toString());
 
-        this.saveBeer();
-        this.setPicasso();
+            this.saveBeer();
+            this.setPicasso();
+        }
     }
 
     private void onDescriptionFocusChanged(View view, boolean b) {
 
-        if (!b)
+        if (!b && !this.beer.getDescription().equals(this.description.getText().toString())) {
+
             this.beer.setDescription(this.description.getText().toString());
 
-        this.saveBeer();
+            this.saveBeer();
+        }
     }
 }
