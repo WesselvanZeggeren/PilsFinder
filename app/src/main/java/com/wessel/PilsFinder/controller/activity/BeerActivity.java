@@ -60,5 +60,7 @@ public class BeerActivity extends AppCompatActivity {
         this.name.setText("");
         this.imagePath.setText("");
         this.percentage.setText("");
+
+        MapActivity.map.refresh();
     }
 }

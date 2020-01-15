@@ -68,7 +68,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Zoek dit bier:"
+        android:text="Search for beer"
         app:layout_constraintBottom_toTopOf="@+id/map_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/map_beer_selecter"
         app:layout_constraintStart_toStartOf="@+id/map_guideline1"

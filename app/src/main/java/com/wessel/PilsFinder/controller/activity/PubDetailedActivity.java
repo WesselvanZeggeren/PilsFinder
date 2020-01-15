@@ -68,6 +68,7 @@ public class PubDetailedActivity extends AppCompatActivity {
         this.description.setOnFocusChangeListener(this::onDescriptionFocusChange);
 
         this.image_path = findViewById(R.id.pub_detailed_image_path);
+        this.image_path.setText(this.pub.getImagePath());
         this.image_path.setOnFocusChangeListener(this::onImagePathFocusChange);
 
         Button delete = findViewById(R.id.pub_detailed_delete);
@@ -79,6 +80,8 @@ public class PubDetailedActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.pub_detailed_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(beerAdapter);
+
+        this.setPicasso();
     }
 
     // methods
@@ -152,5 +155,7 @@ public class PubDetailedActivity extends AppCompatActivity {
         PubDB.getInstance().deletePub(pub);
 
         view.getContext().startActivity(new Intent(this, PubActivity.class));
+
+        MapActivity.map.refresh();
     }
 }

@@ -76,5 +76,7 @@ public class PubActivity extends AppCompatActivity {
         this.latitude.setText("");
         this.longitude.setText("");
         this.imagePath.setText("");
+
+        MapActivity.map.refresh();
     }
 }

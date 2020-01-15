@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.wessel.PilsFinder.R;
 import com.wessel.PilsFinder.controller.activity.BeerDetailedActivity;
+import com.wessel.PilsFinder.controller.activity.MapActivity;
 import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.Beer.BeerDB;
 import com.wessel.PilsFinder.model.Pub.Pub;
@@ -141,6 +142,8 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
             BeerDB.getInstance().deleteBeer(this.getCurrentBeer());
 
             notifyDataSetChanged();
+
+            MapActivity.map.refresh();
         }
 
         private void onCheckChange(CompoundButton compoundButton, boolean b) {

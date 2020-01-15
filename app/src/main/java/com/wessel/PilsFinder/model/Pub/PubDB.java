@@ -5,9 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Location;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.wessel.PilsFinder.model.Beer.Beer;
 import com.wessel.PilsFinder.model.DBConstants;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PubDB extends SQLiteOpenHelper {
@@ -147,6 +151,53 @@ public class PubDB extends SQLiteOpenHelper {
         for (Pub pub : this.pubs)
             if (pub.getId() == id)
                 return pub;
+
+        return null;
+    }
+
+    public Pub getClosestPubByBeer(String beerName, Location location)
+    {
+
+        ArrayList<Pub> pubs = new ArrayList<>();
+
+        for (Pub pub : this.pubs)
+            for (Beer beer : pub.getBeers())
+                if (beer.getName().equals(beerName) && !pubs.contains(pub))
+                    pubs.add(pub);
+
+        return this.getClosestPub(pubs, location);
+    }
+
+    public Pub getClosestPub(Location location) {
+
+        return this.getClosestPub(this.pubs, location);
+    }
+
+    private Pub getClosestPub(ArrayList<Pub> pubs, Location location)
+    {
+
+        if (pubs.size() > 0) {
+
+            int id = -1;
+            float distance = -1;
+
+            for (Pub pub : pubs) {
+
+                Location pubLocation = new Location(pub.getName());
+                pubLocation.setLatitude(pub.getLocation().latitude);
+                pubLocation.setLongitude(pub.getLocation().longitude);
+
+                float current = location.distanceTo(pubLocation);
+
+                if (current < distance || id == -1) {
+
+                    id = pub.getId();
+                    distance = current;
+                }
+            }
+
+            return this.getPubById(id);
+        }
 
         return null;
     }
