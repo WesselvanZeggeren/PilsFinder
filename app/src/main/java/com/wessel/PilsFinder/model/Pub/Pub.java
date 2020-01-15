@@ -84,7 +84,7 @@ public class Pub {
         if (this.prices.containsKey(id))
             return this.prices.get(id);
         
-        return -1;
+        return 0;
     }
 
     // setters

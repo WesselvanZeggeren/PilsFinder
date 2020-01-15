@@ -152,10 +152,15 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
         private void onCheckChange(CompoundButton compoundButton, boolean b) {
 
-            if (!pub.getBeers().contains(this.getCurrentBeer()) && b)
+            if (!pub.getBeers().contains(this.getCurrentBeer()) && b) {
+
                 pub.getBeers().add(this.getCurrentBeer());
-            else if (pub.getBeers().contains(this.getCurrentBeer()) && !b)
+                this.setPrice();
+            } else if (pub.getBeers().contains(this.getCurrentBeer()) && !b) {
+
                 pub.getBeers().remove(this.getCurrentBeer());
+                this.savePub();
+            }
 
             PubAdapter.adapter.notifyDataSetChanged();
         }
@@ -164,10 +169,22 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
             if (!b && pub.getBeers().contains(this.getCurrentBeer())) {
 
-                pub.setPrice(this.getCurrentBeer().getId(), Double.valueOf(this.input.getText().toString()));
+                this.setPrice();
 
                 PubAdapter.adapter.notifyDataSetChanged();
             }
+        }
+
+        private void setPrice() {
+
+            pub.setPrice(this.getCurrentBeer().getId(), Double.valueOf(this.input.getText().toString()));
+
+            this.savePub();
+        }
+
+        private void savePub() {
+
+            PubDB.getInstance().updatePub(pub);
         }
 
         private void onItemViewClick(View view)
