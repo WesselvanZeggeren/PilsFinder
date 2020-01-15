@@ -92,7 +92,7 @@ public class PubDetailedActivity extends AppCompatActivity {
         PubDB.getInstance().updatePub(this.pub);
 
         PubAdapter.adapter.notifyDataSetChanged();
-        
+
         MapActivity.map.refresh();
     }
 
@@ -171,7 +171,9 @@ public class PubDetailedActivity extends AppCompatActivity {
 
         PubDB.getInstance().deletePub(pub);
 
-        view.getContext().startActivity(new Intent(this, PubActivity.class));
+        this.finishActivity(0);
+
+        PubAdapter.adapter.notifyDataSetChanged();
 
         MapActivity.map.refresh();
     }

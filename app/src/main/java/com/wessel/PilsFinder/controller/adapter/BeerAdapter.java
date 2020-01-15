@@ -156,6 +156,8 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
                 pub.getBeers().add(this.getCurrentBeer());
             else if (pub.getBeers().contains(this.getCurrentBeer()) && !b)
                 pub.getBeers().remove(this.getCurrentBeer());
+
+            PubAdapter.adapter.notifyDataSetChanged();
         }
 
         private void onInputFocusChange(View view, boolean b) {
@@ -163,6 +165,8 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
             if (!b && pub.getBeers().contains(this.getCurrentBeer())) {
 
                 pub.setPrice(this.getCurrentBeer().getId(), Double.valueOf(this.input.getText().toString()));
+
+                PubAdapter.adapter.notifyDataSetChanged();
             }
         }
 
