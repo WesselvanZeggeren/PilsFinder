@@ -1,7 +1,6 @@
 package com.wessel.PilsFinder.controller.adapter;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +52,9 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
     {
 
         this.pub = pub;
+
+        if (this.type.equals("price"))
+            this.beers = this.pub.getBeers();
     }
 
     @NonNull
@@ -82,8 +84,11 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
 
         Picasso.get().load(beer.getImagePath()).into(holder.image);
 
-        if (this.type.equals("price"))
-            holder.price.setText(String.valueOf(this.pub.getPrice(beer.getId())));
+        if (this.type.equals("price")) {
+
+            holder.price.setText("€ " + this.pub.getPrice(beer.getId()));
+            holder.description.setText(beer.getDescription());
+        }
 
         if (this.type.equals("pub")) {
 
@@ -105,6 +110,7 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
         ImageView image;
 
         TextView price;
+        TextView description;
 
         Button delete;
 
@@ -119,8 +125,11 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
             this.percentage = itemView.findViewById(R.id.beer_item_percentage);
             this.image = itemView.findViewById(R.id.beer_item_image);
 
-            if (type.equals("price"))
+            if (type.equals("price")) {
+
                 this.price = itemView.findViewById(R.id.beer_item_price);
+                this.description = itemView.findViewById(R.id.beer_percentage);
+            }
 
             if (type.equals("beer")) {
 

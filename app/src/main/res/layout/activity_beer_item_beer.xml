@@ -44,7 +44,7 @@
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <TextView
-        android:id="@+id/beer_item_name_text"
+        android:id="@+id/beer_item_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -66,7 +66,7 @@
         app:layout_constraintBottom_toTopOf="@+id/beer_item_guideline3"
         app:layout_constraintEnd_toStartOf="@+id/beer_item_guideline2"
         app:layout_constraintStart_toStartOf="@+id/beer_item_guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/beer_item_name_text" />
+        app:layout_constraintTop_toBottomOf="@+id/beer_item_name" />
 
     <Button
         android:id="@+id/beer_item_delete"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="@+id/beer_item_guideline3" />
 
     <TextView
-        android:id="@+id/beer_item_name"
+        android:id="@+id/beer_item_price"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -102,6 +102,6 @@
         app:layout_constraintBottom_toTopOf="@+id/beer_item_guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/beer_item_guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/beer_item_name" />
+        app:layout_constraintTop_toBottomOf="@+id/beer_item_price" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
