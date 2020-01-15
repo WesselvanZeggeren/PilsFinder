@@ -59,8 +59,6 @@ public class BeerDetailedActivity extends AppCompatActivity {
         BeerDB.getInstance().updateBeer(this.beer);
 
         BeerAdapter.adapter.notifyDataSetChanged();
-
-        MapActivity.map.refresh();
     }
 
     private void setPicasso() {
@@ -76,6 +74,8 @@ public class BeerDetailedActivity extends AppCompatActivity {
             this.beer.setName(this.name.getText().toString());
 
             this.saveBeer();
+
+            MapActivity.map.setSpinner();
         }
     }
 

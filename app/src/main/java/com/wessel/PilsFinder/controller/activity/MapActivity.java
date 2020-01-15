@@ -91,7 +91,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         this.markers.clear();
 
         this.setMarkers();
-        this.setSpinner();
 
         if (this.route != null)
             this.googleMap.addPolyline(this.route);
@@ -110,7 +109,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         }
     }
 
-    private void setSpinner() {
+    public void setSpinner() {
 
         ArrayList<String> spinnerArray = new ArrayList<>();
         spinnerArray.add("Any ");
