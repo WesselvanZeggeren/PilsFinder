@@ -5,7 +5,6 @@ import android.util.Log;
 
 public class RouteDownloadTask extends AsyncTask {
 
-
     @Override
     protected Object doInBackground(Object[] objects) {
 

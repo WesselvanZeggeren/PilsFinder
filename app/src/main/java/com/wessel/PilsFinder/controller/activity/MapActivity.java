@@ -216,13 +216,32 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             if (locationResult == null)
                 return;
 
-            for (Location l : locationResult.getLocations())
-                if (l != null)
-                    location = l;
+            for (Location location : locationResult.getLocations())
+                if (location != null)
+                    receiveLocation(location);
             }
         };
 
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
+    }
+
+    private void receiveLocation(Location location) {
+
+        for (Pub pub : PubDB.getInstance().getPubs()) {
+
+            Location pubLocation = new Location(pub.getName());
+            pubLocation.setLatitude(pub.getLocation().latitude);
+            pubLocation.setLongitude(pub.getLocation().longitude);
+
+            float distance = location.distanceTo(pubLocation);
+
+            if (distance <= 100 && this.location != null && !pub.closeBy)
+                Toast.makeText(this, "You're close to the pub: " + pub.getName(), Toast.LENGTH_LONG).show();
+
+            pub.closeBy = (distance <= 100);
+        }
+
+        this.location = location;
     }
 
     // route

@@ -3,7 +3,6 @@ package com.wessel.PilsFinder.model.Route;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.wessel.PilsFinder.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +15,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class RouteHelper {

@@ -14,6 +14,8 @@ import java.util.Map;
 
 public class Pub {
 
+    public boolean closeBy = false;
+
     private String name;
     private String open;
     private String address;
