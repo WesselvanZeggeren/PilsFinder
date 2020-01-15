@@ -128,7 +128,7 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
             if (type.equals("price")) {
 
                 this.price = itemView.findViewById(R.id.beer_item_price);
-                this.description = itemView.findViewById(R.id.beer_percentage);
+                this.description = itemView.findViewById(R.id.beer_item_description);
             }
 
             if (type.equals("beer")) {

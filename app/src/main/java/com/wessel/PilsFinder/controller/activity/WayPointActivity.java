@@ -42,7 +42,7 @@ public class WayPointActivity extends AppCompatActivity {
         address.setText(pub.getAddress());
 
         TextView description = findViewById(R.id.way_point_description);
-        description.setText(pub.getAddress());
+        description.setText(pub.getDescription());
 
         Picasso.get().load(pub.getImagePath()).into((ImageView) findViewById(R.id.way_point_image));
     }
